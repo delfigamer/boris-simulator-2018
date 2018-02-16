@@ -1,3 +1,7 @@
+# Program output
+history*
+output*
+
 # Prerequisites
 *.d
 
@@ -30,3 +34,5 @@
 *.exe
 *.out
 *.app
+
+*.nb

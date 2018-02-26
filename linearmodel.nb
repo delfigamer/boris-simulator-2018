@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     49732,       1197]
-NotebookOptionsPosition[     48753,       1158]
-NotebookOutlinePosition[     49094,       1173]
-CellTagsIndexPosition[     49051,       1170]
+NotebookDataLength[     56484,       1361]
+NotebookOptionsPosition[     55260,       1314]
+NotebookOutlinePosition[     55601,       1329]
+CellTagsIndexPosition[     55558,       1326]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -590,6 +590,23 @@ arguments\>\"", "]"}]}], "]"}], ";", "\[IndentingNewLine]",
         RowBox[{"s", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
         "]"}], "}"}]}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{
+   RowBox[{"signalcovariance", "[", "s_sconst", "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"Length", "[", 
+      RowBox[{"s", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+      "]"}], ",", 
+     RowBox[{"Length", "[", 
+      RowBox[{"s", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+      "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"signalcovariance", "[", "s_swhite", "]"}], ":=", 
+   RowBox[{"DiagonalMatrix", "[", 
+    RowBox[{"s", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"loadsystem", "=", 
    RowBox[{"Function", "[", 
     RowBox[{
@@ -680,13 +697,13 @@ arguments\>\"", "]"}]}], "]"}], ";", "\[IndentingNewLine]",
        RowBox[{"a", ".", "b"}], ",", "\[IndentingNewLine]", 
        RowBox[{"{", "}"}]}], "]"}]}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQA2IQzXLkKd/i468dRTsfq4LouG9OXiD6V/lZMN3DFxAE
+1:eJxTTMoPSmViYGAQB2IQzXLkKd/i468dRTsfq4LouG9OXiD6V/lZMN3DFxAE
 og8JJgWDaB7jsjgQ3WbyBUw/cUlPAdFXjyemguiy7sfVIPrOzPUNIHqCmW0X
 iJb4u20hWH3auyMgOstrlcASIH0iokgURAdkeUiD6Os/ixVAdPec/9og+vny
 4/ogWka3xRBE7zgYbwGip9wJcATR+3nXB4LoFyopkSDa49rlTBC9NPJTFoj+
 1v1vPogOnSS3CKxP9NwqEF3ovXsPiO6bs/s6iDZbNPcmiDa4NPUliLaJfPca
 RN9UnhO5CkjrbtgCpt8155WAaM+nnytAdFgn6+rVoPAI91oPoi19YtPXAOl9
-R3IyQDQAFRzNdg==
+R3IyQHSDgu2+UyB9AnuOgWgAOsnXDA==
   "]]
 }, Open  ]],
 
@@ -697,8 +714,9 @@ Cell["Main logic", "Section",
 
 Cell[CellGroupData[{
 
-Cell["Load the input data", "Subsection",
- CellChangeTimes->{{3.7285608828701887`*^9, 3.728560888458398*^9}}],
+Cell["Input reading", "Subsection",
+ CellChangeTimes->{{3.7285608828701887`*^9, 3.728560888458398*^9}, {
+  3.728629577669925*^9, 3.728629580504089*^9}}],
 
 Cell[BoxData[
  RowBox[{"Catch", "[", "\[IndentingNewLine]", 
@@ -713,9 +731,10 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
-Cell["Simulate the system in time", "Subsection",
+Cell["System simulation", "Subsection",
  CellChangeTimes->{{3.728560898605304*^9, 3.7285609029657097`*^9}, {
-  3.728562597847156*^9, 3.728562598843618*^9}}],
+  3.728562597847156*^9, 3.728562598843618*^9}, {3.728629568602605*^9, 
+  3.728629571193411*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -781,16 +800,14 @@ Cell["Output and state response graph", "Subsection",
 Cell[BoxData[
  RowBox[{"ListPlot", "[", "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{
-    RowBox[{"Transpose", "[", "history", "]"}], "\[LeftDoubleBracket]", 
-    RowBox[{"1", ";;", "3"}], "\[RightDoubleBracket]"}], ",", 
-   "\[IndentingNewLine]", 
+   RowBox[{"Transpose", "[", "history", "]"}], ",", "\[IndentingNewLine]", 
    RowBox[{"Joined", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
    RowBox[{"PlotLegends", "\[Rule]", "Automatic"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.7285597562971516`*^9, 3.728559757060273*^9}, {
    3.7285598044659166`*^9, 3.728559870747289*^9}, {3.7285606743348308`*^9, 
    3.72856067538237*^9}, {3.728560907897956*^9, 3.7285609102113543`*^9}, {
-   3.728563699092605*^9, 3.7285637052646723`*^9}, 3.728563840301053*^9}]
+   3.728563699092605*^9, 3.7285637052646723`*^9}, 3.728563840301053*^9, 
+   3.7286245613393097`*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -880,7 +897,7 @@ Cell[BoxData[
          RowBox[{
          "control", ",", "target", ",", "state", ",", "output", ",", 
           "\[IndentingNewLine]", 
-          RowBox[{"history", "=", 
+          RowBox[{"sthistory", "=", 
            RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
           RowBox[{"minout", "=", 
            RowBox[{"Table", "[", 
@@ -929,7 +946,7 @@ Cell[BoxData[
                RowBox[{"oimat", ",", "control"}], "]"}]}]}], ";", 
             "\[IndentingNewLine]", 
             RowBox[{"AppendTo", "[", 
-             RowBox[{"history", ",", "output"}], "]"}], ";", 
+             RowBox[{"sthistory", ",", "output"}], "]"}], ";", 
             "\[IndentingNewLine]", 
             RowBox[{"Do", "[", "\[IndentingNewLine]", 
              RowBox[{
@@ -1135,7 +1152,7 @@ Cell[BoxData[
          RowBox[{"Print", "[", 
           RowBox[{"ListPlot", "[", "\[IndentingNewLine]", 
            RowBox[{
-            RowBox[{"Transpose", "[", "history", "]"}], ",", 
+            RowBox[{"Transpose", "[", "sthistory", "]"}], ",", 
             "\[IndentingNewLine]", 
             RowBox[{"Joined", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
             RowBox[{"PlotLegends", "\[Rule]", "Automatic"}]}], "]"}], 
@@ -1145,19 +1162,158 @@ Cell[BoxData[
         RowBox[{"signaldim", "[", "controlsignal", "]"}]}], "}"}]}], 
      "]"}]}]}], "]"}]], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQB2IQ3VU3xWf18deOcaYbwfQ/doZ8EL0hhBdMV7692gGi
+1:eJxTTMoPSmViYGCQAGIQ3VU3xWf18deOcaYbwfQ/doZ8EL0hhBdMV7692gGi
 Ww3uzQXRjLsij4Po9RzvwfS3vm83QHSandttEH1NYsN7MH9F5mcQ/Zg1WmgN
 kL7UqCgJoifIxyqAaAeGDykgeu/Kf1kgus7jdSGIzvR1KQfRWQv9mkA0t/S9
 NhDN8Th3Loje59C+HERfbytaBaJ3SZ/dAJZ3eHIHRLfxHn0EotXn7H0Mot9N
 u6O5Fki7Vs41BtGprY0WIHqOr6UViC6R8LcD0WJhHG4guueqiQ+ILmuyjgfR
 h7eGpYBondeXc0A026RnBSB67zT1SSDaw8h8FojeZ2W4HkQr+z7ZAaKXePuc
-BNFKceeugegf+kp3QTQAgcTTZg==
+BNFKceeugegf+kp3QfR+OTWNU0BarY5DC0QDAPbx2uI=
   "]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Noise filtering", "Subsection",
+ CellChangeTimes->{{3.7286260534465275`*^9, 3.7286260560333276`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "residual", ",", "residualcovar", ",", "gain", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"stateest", "=", "initstate"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"statecovar", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{"Length", "[", "initstate", "]"}], ",", 
+         RowBox[{"Length", "[", "initstate", "]"}]}], "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"noisecovar", "=", 
+       RowBox[{"signalcovariance", "[", "noisesignal", "]"}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"processcovar", "=", 
+      RowBox[{"snmat", ".", "noisecovar", ".", 
+       RowBox[{"Transpose", "[", "snmat", "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"observcovar", "=", 
+      RowBox[{"onmat", ".", "noisecovar", ".", 
+       RowBox[{"Transpose", "[", "onmat", "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"filthistory", "=", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Block", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"control", ",", "outputest", ",", "covargainmat"}], "}"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"control", "=", 
+           RowBox[{"signalvalue", "[", 
+            RowBox[{"controlsignal", ",", "time"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"outputest", "=", 
+           RowBox[{
+            RowBox[{"osmat", ".", "stateest"}], "+", 
+            RowBox[{"oimat", ".", "control"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"stateest", "=", 
+           RowBox[{
+            RowBox[{"ssmat", ".", "stateest"}], "+", 
+            RowBox[{"simat", ".", "control"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"statecovar", "=", 
+           RowBox[{
+            RowBox[{"ssmat", ".", "statecovar", ".", 
+             RowBox[{"Transpose", "[", "ssmat", "]"}]}], "+", 
+            "processcovar"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"residual", "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+             "history", "\[LeftDoubleBracket]", "time", 
+              "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", 
+             RowBox[{"1", ";;", "outputcount"}], "\[RightDoubleBracket]"}], 
+            "-", 
+            RowBox[{"osmat", ".", "stateest"}], "-", 
+            RowBox[{"oimat", ".", "control"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"residualcovar", "=", 
+           RowBox[{"observcovar", "+", 
+            RowBox[{"osmat", ".", "statecovar", ".", 
+             RowBox[{"Transpose", "[", "osmat", "]"}]}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"gain", "=", 
+           RowBox[{"statecovar", ".", 
+            RowBox[{"Transpose", "[", "osmat", "]"}], ".", 
+            RowBox[{"PseudoInverse", "[", "residualcovar", "]"}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"stateest", "=", 
+           RowBox[{"stateest", "+", 
+            RowBox[{"gain", ".", "residual"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"covargainmat", "=", 
+           RowBox[{
+            RowBox[{"IdentityMatrix", "[", 
+             RowBox[{"Length", "[", "gain", "]"}], "]"}], "-", 
+            RowBox[{"gain", ".", "osmat"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"statecovar", "=", 
+           RowBox[{
+            RowBox[{"covargainmat", ".", "statecovar", ".", 
+             RowBox[{"Transpose", "[", "covargainmat", "]"}]}], "+", 
+            "\[IndentingNewLine]", 
+            RowBox[{"gain", ".", "observcovar", ".", 
+             RowBox[{"Transpose", "[", "gain", "]"}]}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"filthistory", ",", 
+            RowBox[{"Join", "[", 
+             RowBox[{"outputest", ",", "stateest"}], "]"}]}], "]"}]}]}], 
+        "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"time", ",", "1", ",", 
+         RowBox[{"Length", "[", "history", "]"}]}], "}"}]}], "]"}]}]}], "]"}],
+   ";"}]], "Input",
+ CellChangeTimes->{{3.7286277709887495`*^9, 3.7286281169860506`*^9}, {
+  3.72862814919637*^9, 3.7286286050500603`*^9}, {3.728628635876346*^9, 
+  3.7286286652124443`*^9}, {3.7286287092731733`*^9, 3.7286287332984695`*^9}, {
+  3.7286288056227193`*^9, 3.728629229422319*^9}, {3.7286294182527275`*^9, 
+  3.728629473307608*^9}, {3.728629510571351*^9, 3.728629513085044*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["State prediction versus actual state graph", "Subsubsection",
+ CellChangeTimes->{{3.7286295465702376`*^9, 3.728629551263131*^9}, {
+  3.728629594826129*^9, 3.7286296047196636`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Join", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Transpose", "[", "filthistory", "]"}], "\[LeftDoubleBracket]", 
+      
+      RowBox[{
+       RowBox[{"outputcount", "+", "1"}], ";;"}], "\[RightDoubleBracket]"}], 
+     ",", 
+     RowBox[{
+      RowBox[{"Transpose", "[", "history", "]"}], "\[LeftDoubleBracket]", 
+      RowBox[{
+       RowBox[{"outputcount", "+", "1"}], ";;"}], "\[RightDoubleBracket]"}]}],
+     "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotLegends", "\[Rule]", "Automatic"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.728629235565343*^9, 3.728629344996107*^9}, {
+  3.728629379179324*^9, 3.7286293872261467`*^9}}]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{759, 733},
-WindowMargins->{{Automatic, 133}, {Automatic, 1}},
+WindowMargins->{{Automatic, 203}, {Automatic, 4}},
 FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 7, 2015)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1174,29 +1330,37 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 155, 2, 63, "Section"],
-Cell[738, 26, 28631, 663, 3832, "Input"]
+Cell[738, 26, 29299, 680, 3872, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[29406, 694, 95, 1, 63, "Section"],
+Cell[30074, 711, 95, 1, 63, "Section"],
 Cell[CellGroupData[{
-Cell[29526, 699, 109, 1, 43, "Subsection"],
-Cell[29638, 702, 352, 8, 92, "Input"]
+Cell[30194, 716, 152, 2, 43, "Subsection"],
+Cell[30349, 720, 352, 8, 92, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[30027, 715, 166, 2, 43, "Subsection"],
-Cell[30196, 719, 2156, 53, 212, "Input"]
+Cell[30738, 733, 205, 3, 43, "Subsection"],
+Cell[30946, 738, 2156, 53, 212, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[32389, 777, 121, 1, 43, "Subsection"],
-Cell[32513, 780, 684, 12, 92, "Input"]
+Cell[33139, 796, 121, 1, 43, "Subsection"],
+Cell[33263, 799, 613, 10, 92, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[33234, 797, 110, 1, 43, "Subsection"],
-Cell[33347, 800, 2381, 53, 292, "Input"]
+Cell[33913, 814, 110, 1, 43, "Subsection"],
+Cell[34026, 817, 2381, 53, 292, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[35765, 858, 122, 1, 43, "Subsection"],
-Cell[35890, 861, 12835, 293, 1052, "Input"]
+Cell[36444, 875, 122, 1, 43, "Subsection"],
+Cell[36569, 878, 12857, 293, 1052, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49463, 1176, 107, 1, 43, "Subsection"],
+Cell[49573, 1179, 4611, 103, 452, "Input"],
+Cell[CellGroupData[{
+Cell[54209, 1286, 186, 2, 34, "Subsubsection"],
+Cell[54398, 1290, 822, 19, 132, "Input"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
